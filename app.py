@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
-import pandas as pd                   # <-- IMPORT PANDAS
-from scraper import get_service_data  # <-- IMPORT OUR NEW FUNCTION
+import pandas as pd                   
+from scraper import get_service_data  
+from nlp_processor import analyze_sentiment
 
 app = Flask(__name__)
 
@@ -29,7 +30,7 @@ def compare():
     # Convert the list of dictionaries into a DataFrame (a table)
     df = pd.DataFrame(data_list)
 
-    # --- (Future Step: We will add NLP analysis here) ---
+    df['sentiment'] = df['review_summary'].apply(analyze_sentiment)
 
     # --- STEP 3: SHOW DATA (Temporarily) ---
     # Let's print the DataFrame to our terminal to see it.
@@ -48,7 +49,7 @@ def compare():
         </head>
         <body class="container p-5">
             <h1 class="mb-4">Found {len(df)} services for: {service_type}</h1>
-            <p>Data returned from our scraper:</p>
+            <p>Data returned from our scraper with AI sentiment analysis:</p>
             {df.to_html(classes='table table-striped table-hover', index=False)}
             <br>
             <a href="/" class="btn btn-primary">Try a New Search</a>
