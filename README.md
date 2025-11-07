@@ -1,12 +1,12 @@
 #  SynthAI Squad: Automatic Service Price & Review Comparison
 
-**Project for the SOLVIO AI Hackathon Phase 2**
+**Project for the SOLVIO AI Hackathon**
 
 Our platform helps users make informed decisions by automatically gathering, analyzing, and comparing prices and reviews for various local services.
 
 
 
-## 🎯 The Problem
+## The Problem
 
 Finding the best value for local services (like cleaning, repairs, or clinics) is a manual, time-consuming, and frustrating process. Users have to:
 * Browse multiple websites.
@@ -15,7 +15,7 @@ Finding the best value for local services (like cleaning, repairs, or clinics) i
 
 This lack of a centralized, automated comparison tool leads to poor decision-making and wasted time.
 
-## ✨ Our Solution
+## Our Solution
 
 Our **AI-Powered Comparison Platform** automates this entire process.
 
@@ -25,6 +25,8 @@ Our **AI-Powered Comparison Platform** automates this entire process.
 4.  **Clear Comparison:** The user is presented with a clean, simple, side-by-side comparison table, allowing them to choose the best service based on price, rating, *and* AI-analyzed sentiment.
 
 This directly addresses the hackathon's "Problem-to-solution flow" and "AI/automation value" criteria.
+
+> **Note:** This is a **prototype** demonstration focusing on local services. The full-scale implementation will expand to cover **all kinds of services** as well as **products from e-commerce platforms**, enabling comprehensive price comparisons and value analysis across multiple categories and marketplaces.
 
 ## Tech Stack & System Architecture
 
@@ -40,7 +42,7 @@ This project is built on a modern, scalable stack:
 
 
 
-## 🚀 How to Run This Project Locally
+## How to Run This Project Locally
 
 Follow these steps to get the prototype running on your machine.
 
@@ -81,7 +83,7 @@ Follow these steps to get the prototype running on your machine.
 
 ---
 
-## 👥 Meet the Team: SynthAI Squad
+## Meet the Team: SynthAI Squad
 
 We are a team of beginner developers and researchers passionate about using AI to solve real-world problems.
 
