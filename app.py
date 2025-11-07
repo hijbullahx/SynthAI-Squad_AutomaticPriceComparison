@@ -32,30 +32,17 @@ def compare():
 
     df['sentiment'] = df['review_summary'].apply(analyze_sentiment)
 
-    # --- STEP 3: SHOW DATA (Temporarily) ---
-    # Let's print the DataFrame to our terminal to see it.
-    print("--- Scraped Data as DataFrame ---")
+   # --- STEP 4: PREPARE DATA FOR TEMPLATE ---
+    print("--- DataFrame with NLP Sentiment ---")
     print(df)
-    print("---------------------------------")
+    print("------------------------------------")
 
-    # And for the browser, we'll return the DataFrame as an HTML table.
-    # This is just for testing! We'll make a beautiful results
-    # page in the next phase.
-    return f"""
-    <html>
-        <head>
-            <title>Results</title>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        </head>
-        <body class="container p-5">
-            <h1 class="mb-4">Found {len(df)} services for: {service_type}</h1>
-            <p>Data returned from our scraper with AI sentiment analysis:</p>
-            {df.to_html(classes='table table-striped table-hover', index=False)}
-            <br>
-            <a href="/" class="btn btn-primary">Try a New Search</a>
-        </body>
-    </html>
-    """
+    data_for_template = df.to_dict(orient='records')
+
+    return render_template('results.html',
+                       service_data=data_for_template,
+                       service_type=service_type,
+                       location=location)
 
 if __name__ == '__main__':
     app.run(debug=True)
