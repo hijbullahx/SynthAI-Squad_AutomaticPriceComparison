@@ -39,6 +39,35 @@ This project is built on a modern, scalable stack:
 * **Frontend:** **HTML**, **CSS**, & **Bootstrap** (for a clean, responsive UI)
 * **Version Control:** **Git** & **GitHub**
 
+### Architecture Diagram
+
+```mermaid
+graph TD;
+    %% -- Define the boxes (nodes) --
+    A[👤 User's Browser <br/> HTML/Bootstrap Frontend];
+    B(🌐 Flask Web App <br/> app.py);
+    C(⚙️ Scraper Module <br/> scraper.py);
+    D(🧠 NLP Module <br/> nlp_processor.py);
+    E[📊 Pandas DataFrame <br/> In-memory Data];
+
+    %% -- Style the boxes --
+    style A fill:#E3F2FD,stroke:#333;
+    style B fill:#FFF9C4,stroke:#333,stroke-width:2px;
+    style C fill:#E8F5E9,stroke:#333;
+    style D fill:#E8F5E9,stroke:#333;
+    style E fill:#FBE9E7,stroke:#333;
+
+    %% -- Define the arrows (links) --
+    A -- "1. User submits form <br/> e.g., 'Home Cleaning'" --> B;
+    B -- "2. Calls Scraper" --> C;
+    C -- "3. Returns 'mock data' list" --> E;
+    B -- "4. Calls NLP" --> D;
+    D -- "5. Returns 'sentiment' list" --> E;
+    B -- "6. Gets combined data <br/> from DataFrame" --> E;
+    E -- "7. Sends final data to Flask" --> B;
+    B -- "8. Renders 'results.html' <br/> with data" --> A;
+```
+
 
 
 
